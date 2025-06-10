@@ -1,0 +1,18 @@
+
+.cursor {
+    cursor: pointer;
+}
+
+.tree li.folder::before {
+    content: '📁 ';
+    margin-right: 4px;
+}
+
+.tree li.folder.open::before {
+    content: '📂 ';
+}
+
+.tree li:not(.folder)::before {
+    content: '📄 ';
+    margin-right: 4px;
+}

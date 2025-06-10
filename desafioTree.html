@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Tree</title>
+    <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <ul class="tree" >
+        <li>
+            <span class="cursor" >backend</span>
+            <ul>
+                <li><span class="cursor" >app</span>
+                    <ul>
+                        <li>produto.js</li>
+                        <li>usuario.js</li>
+                        <li>venda.js</li>
+                    </ul>
+                </li>
+                <li><span class="cursor" >config</span>
+                    <ul>
+                        <li>banco.js</li>
+                        <li>rotas.js</li>
+                        <li>servidor.js</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </li>
+        <li><span class="cursor" >frontend</span>
+            <ul>
+                <li><span class="cursor" >public</span>
+                    <ul>
+                        <li>app.css</li>
+                        <li>app.js</li>
+                        <li>index.html</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+<script>
+    document.querySelectorAll('.tree li').forEach(li => {
+        const hasChild = li.querySelector('ul')
+        if(hasChild) {
+            li.classList.add('folder')
+            hasChild.style.display = 'none'
+
+            li.addEventListener('click', (e) => {
+                e.stopPropagation()
+                hasChild.style.display = 
+                hasChild.style.display === 'none' ? 'block' : 'none'
+                li.classList.toggle('open')
+            })
+        } else {
+            li.addEventListener('click', (e) => {
+                e.stopPropagation()
+            })
+        }
+    })
+</script>
+
+</html>

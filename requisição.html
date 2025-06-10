@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleindex.css">
+</head>
+<body>
+    <section class="section">
+        <!-- Canais -->
+        <div class="grid-container" >
+            <a class="item" href="espn.html"> ESPN </a>
+        </div>
+
+        <!-- Campo -->
+        <div class="response">
+            <p>Aguarde 5 segundos após cada anúncio...</p>
+            <section id="campo"></section>
+        </div>
+    </section>
+</body>
+
+<script>
+    const conteudo = document.getElementById('campo')
+
+    document.querySelectorAll('a').forEach(link => {
+        link.onclick = e => {
+            e.preventDefault()
+
+            fetch(link.href)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+        }
+    })
+</script>
+</html>
